@@ -1,0 +1,100 @@
+version: '3.8'
+
+services:
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:latest
+    volumes:
+      - prometheus-storage:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    networks:
+      - proxy
+
+  pushgateway:
+    container_name: pushgateway
+    image: prom/pushgateway:latest
+    depends_on:
+      - prometheus
+    ports:
+      - 9091:9091
+    networks:
+      - proxy
+
+  redis:
+    container_name: redis
+    restart: always
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    command: >
+      --requirepass "redispw"
+    networks:
+      - proxy
+
+  daemon:
+    deploy:      
+      resources:
+        limits:
+          cpus: '1'
+    container_name: daemon
+    restart: always
+    build: ./daemon
+    depends_on:
+      - redis
+    command: python scanner.py
+    volumes:
+      - ./daemon/:/usr/src/app/
+    networks:
+      - proxy
+
+  web:
+    container_name: statusboard
+    restart: always
+    build: ./web
+    depends_on:
+      - daemon
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./web/:/usr/src/app/
+    ports:
+      - 8000:8000
+    labels:
+      - "traefik.http.services.statusboard.loadbalancer.server.port=8000"
+      - "traefik.http.routers.statusboard.rule=Host(`statusboard.testing-core.link`)"
+      - "traefik.http.routers.statusboard.entrypoints=websecure"
+      - "traefik.http.routers.statusboard.tls.certresolver=mysslresolver"
+    networks:
+      - proxy
+
+  grafana:
+    container_name: graphs
+    image: grafana/grafana-enterprise
+    restart: always
+    depends_on:
+      - daemon
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    ports:
+      - 3000:3000
+    labels:
+      - "traefik.http.services.graphs.loadbalancer.server.port=3000"
+      - "traefik.http.routers.graphs.rule=Host(`graphs.testing-core.link`)"
+      - "traefik.http.routers.graphs.entrypoints=websecure"
+      - "traefik.http.routers.graphs.tls.certresolver=mysslresolver"
+    networks:
+      - proxy
+    user: "root:root"
+
+networks:
+  proxy:
+    external:
+      name: traefik_proxy
+
+volumes:
+  redisdata:
+  grafana-storage:
+  prometheus-storage:

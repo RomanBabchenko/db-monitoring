@@ -1,0 +1,304 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <style>
+        .jqx-widget-header-dark{ color: #ffffff; border-color:#3e3e42; background-color:#272729;}
+        .jqx-fill-state-focus-dark {border-color: #3E3E42;color: #fff; }
+        .jqx-fill-state-pressed-dark{border-color:#3E3E42; color: #fff; background-color:#3E3E42;}
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let refreshInterval_cassandra;
+            let refreshInterval_couchbase;
+            let refreshInterval_oracle;
+            let dataAdapter_oracle;
+            let dataAdapter_couchbase;
+            let dataAdapter_cassandra;
+
+
+            var cellsrenderer = function (row, columnfield, value, defaulthtml, columnproperties, rowdata) {
+                if (['OFFLINE','DOWN'].includes(value)) {
+                    return '<span style="margin: 4px; margin-top:8px; float: ' + columnproperties.cellsalign + '; color: #ff0000;">' + value + '</span>';
+                }
+                else if (['ONLINE','STARTED','OPEN','LOADED','ACTIVE','RUNNING','UP','NORMAL'].includes(value)) {
+                    return '<span style="margin: 4px; margin-top:8px; float: ' + columnproperties.cellsalign + '; color: #008000;">' + value + '</span>';
+                }
+                else if (['N/A'].includes(value)) {
+                    return '<span style="margin: 4px; margin-top:8px; float: ' + columnproperties.cellsalign + '; color: #a9acb4;">' + value + '</span>';
+                }
+                else {
+                    return '<span style="margin: 4px; margin-top:8px; float: ' + columnproperties.cellsalign + '; color: #FFA500;">' + value + '</span>';
+                }
+            }
+
+            var linkrenderer = function (row, columnfield, value, defaulthtml, columnproperties, rowdata) {
+                var format = { target: '"_blank"' };
+                var html = $.jqx.dataFormat.formatlink(value, format);
+                return '<span style="margin: 4px; margin-top:8px; float: ' + columnproperties.cellsalign + ';"><a style="color: #87CEFA;" href=' + rowdata.link + '>' + value + '</a></span>';
+            }
+
+            var initGridOracle = function () {
+                var source =
+                    {
+                        dataType: "json",
+                        dataFields: [
+                            {name: "node", type: "string"},
+                            {name: "ip", type: "string"},
+                            {name: "state", type: "string"},
+                            {name: "name", type: "string"},
+                            {name: "type", type: "string"},
+                            {name: "obj", type: "string"},
+                            {name: "path", type: "string"},
+                            {name: "status", type: "string"},
+                            {name: "link", type: "link"},
+                            {name: "updated", type: "date"}
+                        ],
+                        id: 'id',
+                        url: "{% url 'get-oracle-status' %}"
+                    };
+
+                dataAdapter_oracle = new $.jqx.dataAdapter(source, {
+                    downloadComplete: function (data, status, xhr) {
+                    },
+                    loadComplete: function (data) {
+                    },
+                    loadError: function (xhr, status, error) {
+                    }
+                });
+
+                $("#grid").jqxGrid(
+                    {
+                        theme: theme,
+                        source: dataAdapter_oracle,
+                        width: '100%',
+                        autoheight: true,
+                        filterable: true,
+                        selectionmode: 'none',
+                        columnsresize: true,
+                        sortable: true,
+                        enablebrowserselection: true,
+                        enablehover: false,
+                        columnsreorder: true,
+                        columns: [
+                            {text: 'Asset', datafield: 'name', width: 150, cellsrenderer: linkrenderer},
+                            {text: 'Status', datafield: 'status', width: 100, cellsrenderer: cellsrenderer},
+                            {text: 'Host/IP', datafield: 'ip', width: 150},
+                            {text: 'Type', datafield: 'type', width: 180},
+                            {text: 'Object', datafield: 'obj', width: 110},
+                            {text: 'Path', datafield: 'path', width: 270},
+                            {text: 'Node', datafield: 'node', width: 150},
+                            {text: 'SSH state', datafield: 'state', width: 100, cellsrenderer: cellsrenderer},
+                            {text: 'Last updated', datafield: 'updated', width: 'auto', cellsformat: 'dd/MM/yyyy h:mm:ss tt'}
+                        ]
+                    });
+            }
+
+            var initGridCouchBase = function () {
+                var source =
+                    {
+                        dataType: "json",
+                        dataFields: [
+                            {name: "node", type: "string"},
+                            {name: "ip", type: "string"},
+                            {name: "state", type: "string"},
+                            {name: "name", type: "string"},
+                            {name: "type", type: "string"},
+                            {name: "path", type: "string"},
+                            {name: "unit", type: "string"},
+                            {name: "load", type: "string"},
+                            {name: "active", type: "string"},
+                            {name: "sub", type: "string"},
+                            {name: "link", type: "link"},
+                            {name: "updated", type: "date"}
+                        ],
+                        id: 'id',
+                        url: "{% url 'get-couchbase-status' %}"
+                    };
+
+                dataAdapter_couchbase = new $.jqx.dataAdapter(source, {
+                    downloadComplete: function (data, status, xhr) {
+                    },
+                    loadComplete: function (data) {
+                    },
+                    loadError: function (xhr, status, error) {
+                    }
+                });
+
+                $("#grid2").jqxGrid(
+                    {
+                        theme: theme,
+                        source: dataAdapter_couchbase,
+                        width: '100%',
+                        autoheight: true,
+                        filterable: true,
+                        selectionmode: 'none',
+                        columnsresize: true,
+                        sortable: true,
+                        enablebrowserselection: true,
+                        enablehover: false,
+                        columnsreorder: true,
+                        columns: [
+                            {text: 'Asset', datafield: 'name', width: 150, cellsrenderer: linkrenderer},
+                            {text: 'Load', datafield: 'load', width: 100, cellsrenderer: cellsrenderer},
+                            {text: 'Active', datafield: 'active', width: 100, cellsrenderer: cellsrenderer},
+                            {text: 'SUB', datafield: 'sub', width: 100, cellsrenderer: cellsrenderer},
+                            {text: 'Host/IP', datafield: 'ip', width: 150},
+                            {text: 'Unit', datafield: 'unit', width: 270},
+                            {text: 'Type', datafield: 'type', width: 180},
+                            {text: 'Node', datafield: 'node', width: 150},
+                            {text: 'SSH state', datafield: 'state', width: 100, cellsrenderer: cellsrenderer},
+                            {text: 'Last updated', datafield: 'updated', width: 'auto', cellsformat: 'dd/MM/yyyy h:mm:ss tt'}
+                        ]
+                    });
+            }
+
+            var initGridCassandra = function () {
+                var source =
+                    {
+                        dataType: "json",
+                        dataFields: [
+                            {name: "node", type: "string"},
+                            {name: "ip", type: "string"},
+                            {name: "state", type: "string"},
+                            {name: "name", type: "string"},
+                            {name: "type", type: "string"},
+                            {name: "node_status", type: "string"},
+                            {name: "node_state", type: "string"},
+                            {name: "datacenter", type: "string"},
+                            {name: "rack", type: "string"},
+                            {name: "link", type: "link"},
+                            {name: "updated", type: "date"}
+                        ],
+                        id: 'id',
+                        url: "{% url 'get-cassandra-status' %}",
+                        sortcolumn: 'name'
+                    };
+
+                dataAdapter_cassandra = new $.jqx.dataAdapter(source, {
+                    downloadComplete: function (data, status, xhr) {
+                    },
+                    loadComplete: function (data) {
+                    },
+                    loadError: function (xhr, status, error) {
+                    }
+                });
+
+                $("#grid3").jqxGrid(
+                    {
+                        theme: theme,
+                        source: dataAdapter_cassandra,
+                        width: '100%',
+                        autoheight: true,
+                        filterable: true,
+                        selectionmode: 'none',
+                        columnsresize: true,
+                        sortable: true,
+                        enablebrowserselection: true,
+                        enablehover: false,
+                        columnsreorder: true,
+                        columns: [
+                            {text: 'Asset', datafield: 'name', width: 200, cellsrenderer: linkrenderer},
+                            {text: 'Status', datafield: 'node_status', width: 100, cellsrenderer: cellsrenderer},
+                            {text: 'State', datafield: 'node_state', width: 100, cellsrenderer: cellsrenderer},
+                            {text: 'datacenter', datafield: 'datacenter', width: 200},
+                            {text: 'Rack', datafield: 'rack', width: 100},
+                            {text: 'Host/IP', datafield: 'ip', width: 150},
+                            {text: 'Type', datafield: 'type', width: 180},
+                            {text: 'SSH state', datafield: 'state', width: 100, cellsrenderer: cellsrenderer},
+                            {text: 'Last updated', datafield: 'updated', width: 'auto', cellsformat: 'dd/MM/yyyy h:mm:ss tt'}
+                        ]
+                    });
+            }
+
+            // init widgets.
+            var initWidgets = function (tab) {
+                switch (tab) {
+                    case 0:
+                        initGridOracle();
+                        refreshInterval_oracle = setInterval(function () {
+                            dataAdapter_oracle.dataBind();
+                            $("#grid").jqxGrid("refreshdata");
+                        }, 5000);
+                        console.log(tab);
+                        break;
+                    case 1:
+                        initGridCouchBase();
+                        console.log(tab);
+                        break;
+                    case 2:
+                        initGridCassandra();
+                        console.log(tab);
+                        break;
+                }
+            }
+
+            $('#tabs').jqxTabs({theme: theme, initTabContent: initWidgets });
+
+            //Unselected event
+            $('#tabs').on('unselected', function (event) {
+                switch (event.args.item) {
+                    case 0:
+                        clearInterval(refreshInterval_oracle);
+                        break
+                    case 1:
+                        clearInterval(refreshInterval_couchbase);
+                        break
+                    case 2:
+                        clearInterval(refreshInterval_cassandra);
+                        break
+                }
+            });
+
+            $('#tabs').on('selected', function (event) {
+                switch (event.args.item) {
+                    case 0:
+                        refreshInterval_oracle = setInterval(function () {
+                            dataAdapter_oracle.dataBind();
+                            $("#grid").jqxGrid("refreshdata");
+                        }, 5000);
+                        break
+                    case 1:
+                        refreshInterval_couchbase = setInterval(function () {
+                            dataAdapter_couchbase.dataBind();
+                            $("#grid2").jqxGrid("refreshdata");
+                        }, 5000);
+                        break
+                    case 2:
+                        refreshInterval_cassandra = setInterval(function () {
+                            dataAdapter_cassandra.dataBind();
+                            $("#grid3").jqxGrid("refreshdata");
+                        }, 5000);
+                        break
+                }
+            });
+        });
+    </script>
+    <title></title>
+</head>
+<body class='default'>
+<div id='tabs'>
+    <ul>
+        <li style="margin-left: 30px;">
+            Oracle
+        </li>
+        <li>
+            Couchbase
+        </li>
+        <li>
+            Cassandra
+        </li>
+    </ul>
+    <div style="overflow: hidden;">
+        <div style="border:none;" id="grid">
+        </div>
+    </div>
+    <div style="overflow: hidden;">
+        <div style="border:none;" id="grid2"></div>
+    </div>
+    <div style="overflow: hidden;">
+        <div style="border:none;" id="grid3"></div>
+    </div>
+</div>
+</body>
+{% endblock %}

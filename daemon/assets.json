@@ -1,0 +1,1098 @@
+{
+  "ora_server1": {
+    "HOST": "10.193.1.96",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db1",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcl",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener1",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_gg1",
+        "type": "Golden Gate configuration",
+        "OGG_HOME": "/u01/app/oracle/product/gg",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/golden_gate/gg_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server2": {
+    "HOST": "10.193.1.97",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db2",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcl",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener2",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server5": {
+    "HOST": "10.193.1.125",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db5-1a",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcla",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db5-1b",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orclb",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db5-1d",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcld",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db5-2c",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orclc",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_2",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener5-1-1",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener5-1-2",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "L2",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener5-2-1",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_2",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server6": {
+    "HOST": "10.193.1.126",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db6-1a",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcla",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db6-1b",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orclb",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db6-1d",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcld",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db6-2c",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orclc",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_2",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener6-1-1",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener6-1-2",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "L2",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener6-2-1",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_2",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server7(rac2)": {
+    "HOST": "10.193.1.133",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db7",
+        "type": "Non-container DB",
+        "ORACLE_SID": "orcl1",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener7",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server8(rac2)": {
+    "HOST": "10.193.1.134",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "link": "",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db8",
+        "type": "Non-container DB",
+        "ORACLE_SID": "orcl2",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener8",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server9": {
+    "HOST": "10.193.1.135",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db91",
+        "type": "Container DB",
+        "ORACLE_SID": "orcl",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db92",
+        "type": "Non-container DB",
+        "ORACLE_SID": "orcl2",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener9",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server10": {
+    "HOST": "10.193.1.138",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db10",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcl",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "PBD": "orclpdb",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener10",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server11(rac3)": {
+    "HOST": "10.193.1.139",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db11",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcl1",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener11",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server12(rac3)": {
+    "HOST": "10.193.1.141",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db12",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcl2",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener12",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server13": {
+    "HOST": "10.193.1.142",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db13",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcl",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_gg3",
+        "type": "Golden Gate configuration",
+        "OGG_HOME": "/u01/app/oracle/product/19.0.0/oggcore_1",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/golden_gate/gg_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener13",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server14": {
+    "HOST": "10.193.1.143",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db14-1a",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcla",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db14-1b",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orclb",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db14-1d",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orcld",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db14-2c",
+        "type": "Oracle Database",
+        "ORACLE_SID": "orclc",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_2",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener14-1-1",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener14-1-2",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "L2",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener14-2-1",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_2",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server15": {
+    "HOST": "10.193.1.144",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db15",
+        "type": "Data Guard logical standby read only",
+        "ORACLE_SID": "orcl",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener15",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server16": {
+    "HOST": "10.193.1.145",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db161",
+        "type": "Data Guard snapshot standby DB",
+        "ORACLE_SID": "orcl_stby3",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_db162",
+        "type": "Golden Gate replica DB",
+        "ORACLE_SID": "replica",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_gg4",
+        "type": "Golden Gate configuration",
+        "OGG_HOME": "/u01/app/oracle/product/19.0.0/oggcore_1",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/golden_gate/gg_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener16",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server17": {
+    "HOST": "10.193.1.151",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db17",
+        "type": "Standalone DB",
+        "ORACLE_SID": "orcl",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener17",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server18": {
+    "HOST": "10.193.1.152",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db18",
+        "type": "Standalone DB",
+        "ORACLE_SID": "orcl",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener18",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server19(rac4)": {
+    "HOST": "10.193.1.136",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db19",
+        "type": "Non-container DB",
+        "ORACLE_SID": "orcl_1",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener19",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_server20(rac4)": {
+    "HOST": "10.193.1.161",
+    "USER": "oracle",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_db20",
+        "type": "Non-container DB",
+        "ORACLE_SID": "orcl_2",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/db_instances/checkstatus.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_listener20",
+        "type": "Oracle Listener",
+        "LISTENER_NAME": "LISTENER",
+        "ORACLE_HOME": "/u01/app/oracle/product/19.0.0/dbhome_1",
+        "script": "scripts/oracle/listener/listener_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_cluster1": {
+    "HOST": "10.193.1.119",
+    "USER": "grid",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_asm1",
+        "type": "ASM instance",
+        "INSTANCE_NAME": "+ASM1",
+        "ORACLE_HOME": "/u01/app/19.0.0/grid",
+        "script": "scripts/oracle/ASM/asm_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_rac1",
+        "type": "One node RAC",
+        "CLUSTER_NAME": "amdocs-cluster",
+        "ORACLE_HOME": "/u01/app/19.0.0/grid",
+        "script": "scripts/oracle/cluster/cluster_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_cluster2": {
+    "HOST": "10.193.1.133",
+    "USER": "grid",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_asm2",
+        "type": "ASM instance",
+        "INSTANCE_NAME": "+ASM1",
+        "ORACLE_HOME": "/u01/app/19.0.0/grid",
+        "script": "scripts/oracle/ASM/asm_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_rac2",
+        "type": "Two node RAC",
+        "CLUSTER_NAME": "amdoc-cluster",
+        "ORACLE_HOME": "/u01/app/19.0.0/grid",
+        "script": "scripts/oracle/cluster/cluster_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_cluster3": {
+    "HOST": "10.193.1.139",
+    "USER": "grid",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_asm3",
+        "type": "ASM instance",
+        "INSTANCE_NAME": "+ASM1",
+        "ORACLE_HOME": "/u01/app/19.0.0/grid",
+        "script": "scripts/oracle/ASM/asm_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_rac3",
+        "type": "Two node RAC",
+        "CLUSTER_NAME": "amdoc-cluster2",
+        "ORACLE_HOME": "/u01/app/19.0.0/grid",
+        "script": "scripts/oracle/cluster/cluster_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "ora_cluster4": {
+    "HOST": "10.193.1.136",
+    "USER": "grid",
+    "PASS": "{{oracle_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Oracle",
+        "name": "ora_asm4",
+        "type": "ASM instance",
+        "INSTANCE_NAME": "+ASM1",
+        "ORACLE_HOME": "/u01/app/19.0.0/grid",
+        "script": "scripts/oracle/ASM/asm_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      },
+      {
+        "brand": "Oracle",
+        "name": "ora_rac4",
+        "type": "Oracle Two node RAC",
+        "CLUSTER_NAME": "amdoc-cluster3",
+        "ORACLE_HOME": "/u01/app/19.0.0/grid",
+        "script": "scripts/oracle/cluster/cluster_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node1": {
+    "HOST": "10.193.2.10",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node1",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node2": {
+    "HOST": "10.193.2.11",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node2",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node3": {
+    "HOST": "10.193.1.158",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node3",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node4": {
+    "HOST": "10.202.100.101",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node4",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node5": {
+    "HOST": "10.202.100.102",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node5",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node6": {
+    "HOST": "10.202.100.103",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node6",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node7": {
+    "HOST": "10.202.100.104",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node7",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node8": {
+    "HOST": "10.202.100.105",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node8",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node9": {
+    "HOST": "10.202.100.106",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node9",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "amdocs-couchbase-node10": {
+    "HOST": "10.202.100.107",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Couchbase",
+        "name": "CouchBase node10",
+        "type": "Couchbase Server",
+        "script": "scripts/couchbase/couchbase_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node1": {
+    "HOST": "10.202.101.1",
+    "USER": "root",
+    "PASS": "{{cb_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra DEVABCluster N1",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node2": {
+    "HOST": "10.202.101.2",
+    "USER": "root",
+    "PASS": "{{cassandra_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra DEVABCluster N2",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node3": {
+    "HOST": "10.202.101.3",
+    "USER": "root",
+    "PASS": "{{cassandra_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra DEVABCluster N3",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node4": {
+    "HOST": "10.202.101.4",
+    "USER": "root",
+    "PASS": "{{cassandra_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra DEVABCluster N4",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node5": {
+    "HOST": "10.202.100.51",
+    "USER": "root",
+    "PASS": "{{cassandra_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra PRODCluster N1",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node6": {
+    "HOST": "10.202.100.52",
+    "USER": "root",
+    "PASS": "{{cassandra_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra PRODCluster N2",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node7": {
+    "HOST": "10.202.100.53",
+    "USER": "root",
+    "PASS": "{{cassandra_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra PRODCluster N3",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node8": {
+    "HOST": "10.202.100.54",
+    "USER": "root",
+    "PASS": "{{cassandra_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra PRODCluster N4",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node9": {
+    "HOST": "10.202.100.55",
+    "USER": "root",
+    "PASS": "{{cassandra_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra PRODCluster N5",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  },
+  "Cassandra node10": {
+    "HOST": "10.202.100.56",
+    "USER": "root",
+    "PASS": "{{cassandra_pass}}",
+    "RESOURCES": [
+      {
+        "brand": "Cassandra",
+        "name": "Cassandra PRODCluster N6",
+        "type": "Cassandra node",
+        "script": "scripts/cassandra/cassandra_status.sh",
+        "link": "{{vault_url}}",
+        "status": "N/A"
+      }
+    ]
+  }
+}
